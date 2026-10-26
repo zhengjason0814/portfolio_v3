@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Page from './components/layout/Page';
 import Header from './components/layout/Header';
+import About from './components/sections/About';
 import { tabs, type Tab } from './data/about';
 import type { ProjectId } from './data/projects';
 import PlateGrid from './dev/PlateGrid';
@@ -45,8 +46,10 @@ export default function App() {
         />
       }
     >
-      {/* placeholder until step 5 */}
-      {view && (
+      {/* each section mounts fresh when the view changes, which replays its entry animation */}
+      {view === 'about' && <About />}
+      {/* placeholder for sections not built yet */}
+      {view && view !== 'about' && (
         <p style={{ fontSize: 'var(--text-label)', color: 'var(--muted)' }}>
           {tabs.find((t) => t.id === view)?.label}
           {project && ` · ${project}`}

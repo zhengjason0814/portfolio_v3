@@ -30,8 +30,10 @@ export const headerLinks: HeaderLink[] = [
   { id: 'email', label: 'email', href: 'mailto:jasonzheng0814@gmail.com' },
 ];
 
-export const aboutParagraphs = [
-  'Stony Brook B.S. in information systems, 2026. now pursuing an M.S. in computer science at Georgia Tech.',
+export const aboutLead =
+  'Stony Brook B.S. in information systems, 2026. now pursuing an M.S. in computer science at Georgia Tech.';
+
+export const aboutBody = [
   "what i like most about software is that it's open-ended: with the right idea, you can build almost anything. i've built AI chatbots, accessible university websites, and a personal finance app with its own ML service.",
   "outside of code, i'm usually cooking, which turns out to be pretty similar: the right ingredients, a bit of creativity, and something good comes out.",
 ];
