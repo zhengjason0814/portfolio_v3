@@ -1,0 +1,37 @@
+.plate {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  width: var(--plate-size);
+}
+
+.dish {
+  position: relative;
+  width: var(--plate-size);
+  height: var(--plate-size);
+}
+
+.base {
+  width: 100%;
+  height: 100%;
+}
+
+/* food artboard is 64×48; sit it in the plate's well, a touch above centre */
+.food {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  width: 60%;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+.label {
+  font-size: max(10px, calc(var(--plate-size) * 0.09));
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--muted);
+  white-space: nowrap;
+}

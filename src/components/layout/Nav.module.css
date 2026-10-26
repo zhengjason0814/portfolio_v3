@@ -1,0 +1,60 @@
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  column-gap: 28px;
+}
+
+.tab {
+  position: relative;
+  min-height: 44px;
+  padding: 6px 0;
+  font-size: var(--text-nav);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color 0.12s ease,
+    transform 0.14s var(--ease-spring);
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  height: 1.5px;
+  background: transparent;
+}
+
+.tab:hover,
+.tab[aria-pressed='true'] {
+  color: var(--ink);
+}
+
+.tab[aria-pressed='true']::after {
+  background: var(--accent);
+}
+
+.tab:active {
+  transform: scale(0.92);
+}
+
+/* matches Header: nav wraps under the name on narrow screens */
+@media (max-width: 760px) {
+  .nav {
+    justify-content: flex-start;
+    column-gap: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab {
+    transition: color 0.12s ease;
+  }
+  .tab:active {
+    transform: none;
+  }
+}
