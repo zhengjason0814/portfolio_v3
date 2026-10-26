@@ -1,22 +1,11 @@
 import styles from './Name.module.css';
 
-interface NameProps {
-  text: string;
-  onHome: () => void;
-}
-
-export default function Name({ text, onHome }: NameProps) {
+export default function Name({ text }: { text: string }) {
   return (
     <h1 className={styles.name}>
-      <button
-        type="button"
-        className={styles.home}
-        data-text={text}
-        onClick={onHome}
-        aria-label={`${text}, back to home`}
-      >
+      <span className={styles.text} data-text={text}>
         {text}
-      </button>
+      </span>
       <span className={styles.puffs} aria-hidden="true">
         <i />
         <i />

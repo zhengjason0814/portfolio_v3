@@ -1,0 +1,78 @@
+.card {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  flex: none;
+  object-fit: contain;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.heading {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.date {
+  font-size: var(--text-label);
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.blurb {
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* ---------- work: boxed logo, date first, "title · org" ---------- */
+.work {
+  gap: 18px;
+}
+
+.work .logo {
+  width: 88px;
+  height: 88px;
+  padding: 6px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+}
+
+.work .heading {
+  font-size: var(--text-lg);
+  line-height: 1.6;
+}
+
+/* ---------- school: bare logo, larger name / degree / date / note ---------- */
+.school {
+  gap: 22px;
+}
+
+.school .logo {
+  width: 96px;
+  height: 96px;
+}
+
+.school .heading {
+  font-size: var(--text-xl);
+}
+
+.degree {
+  font-size: var(--text-lg);
+  color: var(--muted);
+}
+
+.school .date {
+  font-size: var(--text-body);
+}
+
+.school .blurb {
+  margin-top: 8px;
+}

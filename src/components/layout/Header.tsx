@@ -18,18 +18,17 @@ const icons: Record<HeaderLinkId, FunctionComponent<SVGProps<SVGSVGElement>>> = 
 };
 
 interface HeaderProps {
-  active: Tab | null;
-  onHome: () => void;
+  active: Tab;
   onSelect: (tab: Tab) => void;
   onHover: (tab: Tab) => void;
   onLeave: () => void;
 }
 
-export default function Header({ active, onHome, onSelect, onHover, onLeave }: HeaderProps) {
+export default function Header({ active, onSelect, onHover, onLeave }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.hero}>
-        <Name text={name} onHome={onHome} />
+        <Name text={name} />
         <Blurb text={blurb} />
         <Tags items={tags} />
       </div>

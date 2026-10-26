@@ -10,21 +10,16 @@
   animation: rise 1s var(--ease-out) 0.05s both;
 }
 
-.home {
+.text {
   position: relative;
+  display: inline-block;
   isolation: isolate;
-  text-align: left;
-  transition: transform 0.14s var(--ease-spring);
-}
-
-.home:active {
-  transform: scale(0.97);
 }
 
 /* ---------- heat sweep ---------- */
 /* a transparent copy of the name behind the real text; only its glow shows,
    and only where the mask band currently is */
-.home::after {
+.text::after {
   content: attr(data-text);
   position: absolute;
   inset: 0;
@@ -156,10 +151,7 @@
   .name {
     animation: none;
   }
-  .home:active {
-    transform: none;
-  }
-  .home::after {
+  .text::after {
     animation: none;
     mask-image: none;
     opacity: 0.5;
