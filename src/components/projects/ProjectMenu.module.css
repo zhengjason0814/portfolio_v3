@@ -1,0 +1,83 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.card {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-left: 2px solid transparent;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  text-align: left;
+  color: var(--text);
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.14s var(--ease-spring);
+}
+
+.card:hover {
+  background: var(--fill-soft);
+  color: var(--ink);
+}
+
+.card[aria-pressed='true'] {
+  background: var(--fill);
+  color: var(--ink);
+  border-left-color: var(--accent);
+}
+
+.card:active {
+  transform: scale(0.97);
+}
+
+.name {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.tagline {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--text-sm);
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+/* sits left of the card visually, after it in the DOM */
+.icon {
+  flex: none;
+  order: -1;
+  color: var(--faint);
+  transition:
+    color 0.15s ease,
+    transform 0.25s var(--ease-out);
+}
+
+.card:hover + .icon,
+.card[aria-pressed='true'] + .icon {
+  color: var(--accent);
+}
+
+.card[aria-pressed='true'] + .icon {
+  transform: scale(1.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:active,
+  .card[aria-pressed='true'] + .icon {
+    transform: none;
+  }
+}

@@ -5,7 +5,9 @@ import Conveyor from './components/plates/Conveyor';
 import About from './components/sections/About';
 import Experience from './components/sections/Experience';
 import Education from './components/sections/Education';
+import Projects from './components/sections/Projects';
 import { tabs, type Tab } from './data/about';
+import type { ProjectId } from './data/projects';
 import PlateGrid from './dev/PlateGrid';
 
 const LEAVE_DELAY = 30; // ms; stops a flash when moving between adjacent nav items
@@ -13,6 +15,7 @@ const LEAVE_DELAY = 30; // ms; stops a flash when moving between adjacent nav it
 export default function App() {
   const [tab, setTab] = useState<Tab>('about');
   const [hover, setHover] = useState<Tab | null>(null);
+  const [project, setProject] = useState<ProjectId | null>(null);
   const leaveTimer = useRef<number | undefined>(undefined);
 
   useEffect(() => () => window.clearTimeout(leaveTimer.current), []);
@@ -25,6 +28,9 @@ export default function App() {
     window.clearTimeout(leaveTimer.current);
     leaveTimer.current = window.setTimeout(() => setHover(null), LEAVE_DELAY);
   };
+  // clicking the selected project again deselects it
+  const toggleProject = (id: ProjectId) => setProject((p) => (p === id ? null : id));
+
   // skills never previews on hover: the main area stays blank while hovering it
   const view: Tab | null = hover === 'skills' ? null : (hover ?? tab);
 
@@ -39,8 +45,9 @@ export default function App() {
       {view === 'about' && <About />}
       {view === 'experience' && <Experience />}
       {view === 'education' && <Education />}
-      {/* placeholder for sections not built yet */}
-      {(view === 'projects' || view === 'skills') && (
+      {view === 'projects' && <Projects selected={project} onSelect={toggleProject} />}
+      {/* placeholder until step 8 */}
+      {view === 'skills' && (
         <p style={{ fontSize: 'var(--text-label)', color: 'var(--muted)' }}>
           {tabs.find((t) => t.id === view)?.label}
         </p>

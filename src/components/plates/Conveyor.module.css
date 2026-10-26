@@ -4,7 +4,13 @@
   overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: pan-y;
+  touch-action: pan-y; /* vertical swipes scroll the page; horizontal ones drag the strip */
+  cursor: grab;
+}
+
+/* set by useConveyor while a pointer is down */
+.conveyor[data-dragging] {
+  cursor: grabbing;
 }
 
 /* transform / opacity / z-index are written every frame by useConveyor */

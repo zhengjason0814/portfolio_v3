@@ -53,6 +53,13 @@ export const projects: Project[] = [
   },
 ];
 
+export const projectsCopy = {
+  hint: 'pick a dish from the menu — its plates will come up from the kitchen.',
+  trayLabel: 'tech stack',
+  extrasLabel: 'additional',
+  screenshotPending: 'screenshot coming soon',
+};
+
 export const projectById = Object.fromEntries(projects.map((p) => [p.id, p])) as Record<
   ProjectId,
   Project

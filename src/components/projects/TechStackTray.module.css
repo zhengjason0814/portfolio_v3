@@ -1,0 +1,46 @@
+.tray {
+  position: relative;
+  margin-top: 6px;
+  padding: 14px 12px 10px;
+  border: 1.5px dashed var(--line-warm);
+  border-radius: var(--radius-lg);
+}
+
+/* sits on the dashed border, like a legend */
+.label {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  padding: 0 6px;
+  background: var(--bg);
+  font-size: var(--text-xs);
+  letter-spacing: 0.02em;
+  color: var(--accent);
+}
+
+.plates {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(62px, 1fr));
+  gap: 6px 4px;
+  min-height: 60px;
+}
+
+.plates > * {
+  display: flex;
+  justify-content: center;
+}
+
+.extras {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.extrasLabel {
+  margin-right: 4px;
+  font-size: var(--text-xs);
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
