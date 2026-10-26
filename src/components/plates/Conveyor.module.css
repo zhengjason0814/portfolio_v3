@@ -1,0 +1,33 @@
+.conveyor {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+
+/* transform / opacity / z-index are written every frame by useConveyor */
+.slot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 128px;
+  visibility: hidden; /* until the first layout pass places it */
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+}
+
+.lift {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.slot:hover .lift {
+  transform: translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lift {
+    transition: none;
+  }
+}

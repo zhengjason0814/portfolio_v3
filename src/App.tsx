@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Page from './components/layout/Page';
 import Header from './components/layout/Header';
+import Conveyor from './components/plates/Conveyor';
 import About from './components/sections/About';
 import Experience from './components/sections/Experience';
 import Education from './components/sections/Education';
@@ -32,6 +33,7 @@ export default function App() {
   return (
     <Page
       header={<Header active={tab} onSelect={setTab} onHover={handleHover} onLeave={handleLeave} />}
+      footer={<Conveyor />}
     >
       {/* each section mounts fresh when the view changes, which replays its entry animation */}
       {view === 'about' && <About />}
