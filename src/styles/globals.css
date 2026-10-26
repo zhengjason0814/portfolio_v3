@@ -1,0 +1,113 @@
+/* ---------- design tokens ---------- */
+:root {
+  /* colour */
+  --bg: #ffffff;
+  --ink: #141414; /* headings, pressed nav, hover text */
+  --text: #3d3d3d; /* running body copy */
+  --muted: #6a6a6a; /* section labels, nav at rest, plate labels */
+  --faint: #9a9a9a; /* idle icons */
+  --accent: #5b3b25; /* links, nav underline, selected-card bar */
+  --line: #e6e6e6; /* 1px borders, photo frame, dividers */
+  --line-soft: #ececec; /* card outlines */
+  --line-warm: #c9bfb6; /* dashed tray outline */
+  --fill: #f2f2f2; /* selected card, icon-link hover */
+  --fill-soft: #f6f6f6; /* card hover */
+
+  /* type */
+  --font: 'Work Sans Variable', system-ui, sans-serif;
+  --text-xs: 10px;
+  --text-sm: 12px;
+  --text-label: 13px;
+  --text-nav: 14px;
+  --text-body: 15px;
+  --text-lg: 17px;
+  --text-xl: 20px;
+  --text-name: 52px;
+
+  /* shape */
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ---------- reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- shared keyframes ---------- */
+/* fade + lift for section content; transform/opacity only */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* hard on/off cursor blink; pair with steps(1) */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
