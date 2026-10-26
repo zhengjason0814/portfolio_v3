@@ -1,0 +1,22 @@
+.blurb {
+  max-width: 420px;
+  line-height: 1.6;
+  color: var(--text-soft);
+  animation: rise 1s var(--ease-out) 0.17s both;
+}
+
+.cursor {
+  display: inline-block;
+  width: 1.5px;
+  height: 0.95em;
+  margin-left: 3px;
+  vertical-align: -0.12em;
+  background: var(--ink);
+  animation: blink 1.1s steps(1, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blurb {
+    animation: none;
+  }
+}

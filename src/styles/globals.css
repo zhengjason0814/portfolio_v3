@@ -4,6 +4,7 @@
   --bg: #ffffff;
   --ink: #141414; /* headings, pressed nav, hover text */
   --text: #3d3d3d; /* running body copy */
+  --text-soft: #4a4a4a; /* hero blurb, header icon links */
   --muted: #6a6a6a; /* section labels, nav at rest, plate labels */
   --faint: #9a9a9a; /* idle icons */
   --accent: #5b3b25; /* links, nav underline, selected-card bar */

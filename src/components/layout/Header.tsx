@@ -1,5 +1,8 @@
 import type { FunctionComponent, SVGProps } from 'react';
-import { headerLinks, name, type HeaderLinkId, type Tab } from '../../data/about';
+import { blurb, headerLinks, name, tags, type HeaderLinkId, type Tab } from '../../data/about';
+import Name from '../hero/Name';
+import Blurb from '../hero/Blurb';
+import Tags from '../hero/Tags';
 import ResumeIcon from '../../assets/icons/resume.svg?react';
 import GithubIcon from '../../assets/icons/github.svg?react';
 import LinkedinIcon from '../../assets/icons/linkedin.svg?react';
@@ -25,13 +28,10 @@ interface HeaderProps {
 export default function Header({ active, onHome, onSelect, onHover, onLeave }: HeaderProps) {
   return (
     <header className={styles.header}>
-      {/* replaced by the hero (Name, Blurb, Tags) in step 4b */}
       <div className={styles.hero}>
-        <h1>
-          <button type="button" className={styles.home} onClick={onHome}>
-            {name}
-          </button>
-        </h1>
+        <Name text={name} onHome={onHome} />
+        <Blurb text={blurb} />
+        <Tags items={tags} />
       </div>
 
       <div className={styles.side}>
