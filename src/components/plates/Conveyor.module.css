@@ -1,6 +1,46 @@
+/* folds the strip away for the skills shelves. The strip keeps its size inside, so the plates
+   don't re-layout while the height animates */
+.fold {
+  flex: none;
+  height: var(--conveyor-h);
+  overflow: hidden;
+  transition:
+    height 0.7s var(--ease-out),
+    opacity 0.4s ease;
+}
+
+/* visibility flips after the fold, so a folded strip can't be dragged or focused */
+.fold[data-collapsed] {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    height 0.7s var(--ease-out),
+    opacity 0.4s ease,
+    visibility 0s linear 0.7s;
+}
+
+/* the strip itself has no per-frame transform, so the shake can't fight the plates' */
+.conveyor[data-shaking] {
+  animation: shake 0.42s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: none;
+  }
+  25% {
+    transform: translateX(-2px) rotate(-0.4deg);
+  }
+  75% {
+    transform: translateX(2px) rotate(0.4deg);
+  }
+}
+
 .conveyor {
   position: relative;
-  height: 200px;
+  height: var(--conveyor-h);
   overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
@@ -18,22 +58,43 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 128px;
+  width: var(--plate);
   visibility: hidden; /* until the first layout pass places it */
   transform-origin: 50% 50%;
   will-change: transform, opacity;
 }
 
 .lift {
-  transition: transform 0.3s var(--ease-out);
+  transition:
+    transform 0.3s var(--ease-out),
+    opacity 0.3s ease;
 }
 
 .slot:hover .lift {
   transform: translateY(-6px);
 }
 
+/* twin is in the project tray. The filter is static and on the inner wrapper,
+   so the per-frame transform on .slot doesn't recompute it */
+.slot[data-ghost] .lift {
+  opacity: 0.22;
+  filter: grayscale(1);
+}
+
+/* its flyer hasn't taken off yet: stay solid until the plate visibly leaves */
+.slot[data-fly-pending] .lift {
+  opacity: 1;
+  filter: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .lift {
+  .lift,
+  .fold,
+  .fold[data-collapsed] {
     transition: none;
+  }
+
+  .conveyor[data-shaking] {
+    animation: none;
   }
 }

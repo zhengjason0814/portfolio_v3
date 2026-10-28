@@ -10,7 +10,7 @@ interface NavProps {
 
 export default function Nav({ active, onSelect, onHover, onLeave }: NavProps) {
   return (
-    <nav className={styles.nav} aria-label="sections">
+    <nav className={`enter ${styles.nav}`} aria-label="sections">
       {tabs.map((t) => (
         <button
           key={t.id}

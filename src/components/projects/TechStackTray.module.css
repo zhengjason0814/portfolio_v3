@@ -30,6 +30,26 @@
   justify-content: center;
 }
 
+.fly {
+  display: flex;
+  justify-content: center;
+  width: 44px;
+}
+
+/* in flight: above the conveyor's plates, and without the label, which would scale up with it */
+.fly[data-flying] {
+  position: relative;
+  z-index: 200;
+}
+
+.fly figcaption {
+  transition: opacity 0.2s ease;
+}
+
+.fly[data-flying] figcaption {
+  opacity: 0;
+}
+
 .extras {
   display: flex;
   flex-wrap: wrap;

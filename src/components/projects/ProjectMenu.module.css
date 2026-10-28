@@ -81,3 +81,14 @@
     transform: none;
   }
 }
+
+/* short windows */
+@media (max-height: 780px) {
+  .menu {
+    gap: 2px;
+  }
+
+  .card {
+    padding: 5px 12px;
+  }
+}

@@ -14,10 +14,12 @@
   flex-direction: column;
   gap: 8px;
   min-width: 0;
-  animation: rise 0.7s var(--ease-out) both;
 }
 
+/* only the top half rises in; the tray's plates fly in on their own, and fading
+   their parent would hide them mid-flight */
 .top {
+  animation: rise 0.7s var(--ease-out) both;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -77,8 +79,26 @@
   color: var(--muted);
 }
 
+/* short windows: a smaller screenshot keeps the tray above the conveyor */
+@media (max-height: 780px) {
+  .shot {
+    flex-basis: 200px;
+  }
+
+  .hint {
+    min-height: 180px;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .detail {
+  .top {
     animation: none;
   }
 }

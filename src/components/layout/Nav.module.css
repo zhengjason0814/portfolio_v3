@@ -1,4 +1,5 @@
 .nav {
+  --enter-delay: 0.22s;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;

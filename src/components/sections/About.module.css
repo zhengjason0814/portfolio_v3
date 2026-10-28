@@ -4,6 +4,13 @@
   gap: 20px;
 }
 
+/* short windows */
+@media (max-height: 780px) {
+  .section {
+    gap: 14px;
+  }
+}
+
 .body {
   display: flex;
   flex-wrap: wrap;
@@ -20,7 +27,6 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--bg);
-  animation: rise 1s var(--ease-out) 0.12s both;
 }
 
 .text {
@@ -40,20 +46,6 @@
   color: var(--ink);
 }
 
-/* staggered entry, after the label (0.04s) and photo (0.12s) */
-.text > * {
-  animation: rise 1s var(--ease-out) both;
-}
-.text > :nth-child(1) {
-  animation-delay: 0.17s;
-}
-.text > :nth-child(2) {
-  animation-delay: 0.24s;
-}
-.text > :nth-child(3) {
-  animation-delay: 0.31s;
-}
-
 @media (max-width: 760px) {
   .photo {
     width: 180px;
@@ -61,9 +53,9 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .photo,
-  .text > * {
-    animation: none;
+@media (max-height: 780px) {
+  .photo {
+    width: 200px;
+    height: 200px;
   }
 }

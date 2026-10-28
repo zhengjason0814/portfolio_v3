@@ -4,6 +4,13 @@
   gap: 20px;
 }
 
+/* short windows */
+@media (max-height: 780px) {
+  .section {
+    gap: 14px;
+  }
+}
+
 .body {
   display: flex;
   flex-wrap: wrap;
@@ -13,7 +20,6 @@
 
 .menu {
   flex: 0 1 250px;
-  animation: rise 1s var(--ease-out) 0.12s both;
 }
 
 .detail {
@@ -24,11 +30,5 @@
 @media (max-width: 760px) {
   .menu {
     flex-basis: 100%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .menu {
-    animation: none;
   }
 }

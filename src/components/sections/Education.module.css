@@ -4,6 +4,13 @@
   gap: 20px;
 }
 
+/* short windows */
+@media (max-height: 780px) {
+  .section {
+    gap: 14px;
+  }
+}
+
 .list {
   display: flex;
   flex-wrap: wrap;
@@ -18,17 +25,4 @@
 .list > li {
   flex: 1 1 340px;
   max-width: 440px;
-  animation: rise 1s var(--ease-out) both;
-}
-.list > li:nth-child(1) {
-  animation-delay: 0.17s;
-}
-.list > li:nth-child(2) {
-  animation-delay: 0.24s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .list > li {
-    animation: none;
-  }
 }

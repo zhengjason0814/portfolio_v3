@@ -35,7 +35,7 @@ export default function Header({ active, onSelect, onHover, onLeave }: HeaderPro
 
       <div className={styles.side}>
         <Nav active={active} onSelect={onSelect} onHover={onHover} onLeave={onLeave} />
-        <ul className={styles.links}>
+        <ul className={`enter ${styles.links}`}>
           {headerLinks.map((l) => {
             const Icon = icons[l.id];
             const external = l.href.startsWith('http') || l.id === 'resume';

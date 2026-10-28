@@ -1,0 +1,28 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* short windows */
+@media (max-height: 780px) {
+  .section {
+    gap: 14px;
+  }
+}
+
+.shelves {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* short windows */
+@media (max-height: 780px) {
+  .shelves {
+    gap: 16px;
+  }
+}

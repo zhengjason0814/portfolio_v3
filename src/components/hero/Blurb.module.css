@@ -1,8 +1,19 @@
 .blurb {
+  position: relative;
   max-width: 420px;
   line-height: 1.6;
   color: var(--text-soft);
-  animation: rise 1s var(--ease-out) 0.17s both;
+  --enter-delay: 0.17s;
+}
+
+/* same text, same width, so the typed copy wraps exactly like the finished one */
+.ghost {
+  visibility: hidden;
+}
+
+.typed {
+  position: absolute;
+  inset: 0;
 }
 
 .cursor {
@@ -12,11 +23,31 @@
   margin-left: 3px;
   vertical-align: -0.12em;
   background: var(--ink);
+}
+
+/* solid while typing, blinking once the line is done */
+.cursor[data-blink] {
   animation: blink 1.1s steps(1, end) infinite;
 }
 
+/* hard on/off; paired with steps(1) */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .blurb {
+  .cursor[data-blink] {
     animation: none;
   }
 }

@@ -1,5 +1,6 @@
 import { useEffect, useRef, type RefObject } from 'react';
 import { useReducedMotion } from './useReducedMotion';
+import type { FlySource } from './useFlyIn';
 
 export interface ConveyorOptions {
   spacing: number; // px between plate slots
@@ -8,7 +9,7 @@ export interface ConveyorOptions {
   paused?: boolean;
 }
 
-/** attribute every plate wrapper inside the host must carry */
+/** attribute every plate wrapper inside the host must carry; its value is the skill id */
 export const CONVEYOR_PLATE_ATTR = 'data-conveyor-plate';
 
 // arc shape
@@ -17,6 +18,47 @@ const LIFT = 10; // px offset of the centre plate from the top
 const TILT = 13; // deg of rotation at the edges
 const SHRINK = 0.26; // scale lost at the edges
 const FADE_FROM = 0.55; // |t| where plates start fading; fully gone at |t| = 1
+
+const TRANSFORM_RE = /rotate\((-?[\d.]+)deg\) scale\(([\d.]+)\)/;
+
+/**
+ * Where a skill's plate is on the conveyor right now, so a fly-in can take off exactly on top of
+ * it. If the plate is off the belt, this is the belt edge it is nearer, at the edge's size and
+ * tilt and fully faded, so the flyer emerges from the conveyor the way any plate enters it.
+ */
+export function conveyorPlateSource(skillId: string): FlySource | null {
+  const el = document.querySelector<HTMLElement>(
+    `[${CONVEYOR_PLATE_ATTR}="${CSS.escape(skillId)}"]`,
+  );
+  const host = el?.parentElement;
+  if (!el || !host) return null;
+
+  if (el.style.visibility !== 'hidden') {
+    const m = TRANSFORM_RE.exec(el.style.transform);
+    const r = el.getBoundingClientRect(); // inflated by the tilt, but centred on the plate
+    return {
+      el,
+      cx: r.left + r.width / 2,
+      cy: r.top + r.height / 2,
+      width: el.offsetWidth * (m ? Number(m[2]) : 1),
+      rotate: m ? Number(m[1]) : 0,
+      opacity: el.style.opacity === '' ? 1 : Number(el.style.opacity),
+    };
+  }
+
+  const belt = host.getBoundingClientRect();
+  const scale = 1 - SHRINK;
+  const width = el.offsetWidth * scale;
+  const left = el.dataset.side === 'left';
+  return {
+    el,
+    cx: left ? belt.left + width / 2 : belt.right - width / 2,
+    cy: belt.top + LIFT + DROP + (el.offsetHeight * scale) / 2,
+    width,
+    rotate: left ? -TILT : TILT,
+    opacity: 0,
+  };
+}
 
 // drag
 const FRICTION = 0.06; // fraction of fling velocity left after one second
@@ -68,6 +110,9 @@ export function useConveyor(
         const x = wrap(i * spacing - scroll) - spacing; // -spacing … loop - spacing
         if (x > w) {
           el.style.visibility = 'hidden';
+          // which edge it is nearer along the loop: about to enter on the right, or just left
+          const side = x - w < loop - spacing - x ? 'right' : 'left';
+          if (el.dataset.side !== side) el.dataset.side = side;
           continue;
         }
         const t = Math.max(-1, Math.min(1, (x + plateWidth / 2 - half) / half));

@@ -2,7 +2,7 @@ import styles from './Name.module.css';
 
 export default function Name({ text }: { text: string }) {
   return (
-    <h1 className={styles.name}>
+    <h1 className={`enter ${styles.name}`}>
       <span className={styles.text} data-text={text}>
         {text}
       </span>

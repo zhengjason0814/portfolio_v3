@@ -1,0 +1,62 @@
+/* tag in a fixed left column, plates to its right, plank along the bottom */
+.shelf {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  align-items: end;
+  column-gap: 8px;
+  padding: 0 10px 8px 0;
+  border-bottom: 2px solid var(--line-warm);
+}
+
+.tag {
+  padding-bottom: 10px;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 4px 18px;
+  min-height: 70px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* sized to the plate (not its wider label), so the flight's scale matches the conveyor plate */
+.fly {
+  display: flex;
+  justify-content: center;
+  width: 56px;
+}
+
+/* in flight: above the conveyor, and without the label, which would scale up with the plate */
+.fly[data-flying] {
+  position: relative;
+  z-index: 200;
+}
+
+.fly figcaption {
+  transition: opacity 0.2s ease;
+}
+
+.fly[data-flying] figcaption {
+  opacity: 0;
+}
+
+/* narrow: tag sits above the plates */
+@media (max-width: 640px) {
+  .shelf {
+    grid-template-columns: 1fr;
+    row-gap: 6px;
+    padding-left: 10px;
+  }
+
+  .tag {
+    padding-bottom: 0;
+  }
+}

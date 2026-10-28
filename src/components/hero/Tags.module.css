@@ -3,11 +3,5 @@
   font-size: var(--text-sm);
   letter-spacing: 0.02em;
   color: var(--muted);
-  animation: rise 1s var(--ease-out) 0.29s both;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .tags {
-    animation: none;
-  }
+  --enter-delay: 0.29s;
 }

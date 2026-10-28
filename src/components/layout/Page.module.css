@@ -1,11 +1,13 @@
+/* the page is exactly the viewport: header, a main area that takes what is left, conveyor */
 .page {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  min-height: 100vh;
+  height: 100%;
   max-width: 1120px;
   margin: 0 auto;
   padding: 36px 32px 0;
+  overflow: hidden;
 }
 
 .main {
@@ -13,10 +15,54 @@
   min-height: 0;
   border-top: 1px solid var(--line);
   padding-top: 24px;
+  overflow: hidden;
+}
+
+/* a view chosen from the nav fades in; keyed in Page, so this plays on every change */
+.view[data-animate] {
+  animation: rise 0.6s var(--ease-out) both;
+}
+
+/* CSS Modules scope keyframe names per file, so each module defines its own */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.footer {
+  flex: none;
+  --enter-delay: 0.6s;
+}
+
+/* short windows: tighter rhythm, so every view fits above the conveyor */
+@media (max-height: 780px) {
+  .page {
+    gap: 18px;
+    padding-top: 22px;
+  }
+
+  .main {
+    padding-top: 16px;
+  }
+}
+
+/* phones: the page stays put, but the main area may scroll inside itself */
+@media (max-width: 760px) {
+  .main {
+    overflow-y: auto;
+  }
 }
 
 @media (max-width: 480px) {
   .page {
     padding: 24px 16px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .view[data-animate] {
+    animation: none;
   }
 }
