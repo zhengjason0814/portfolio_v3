@@ -3,12 +3,22 @@ import { projects, type Project, type ProjectId } from '../../data/projects';
 import BreadIcon from '../../assets/icons/bread.svg?react';
 import DumbbellIcon from '../../assets/icons/dumbbell.svg?react';
 import ChatIcon from '../../assets/icons/chat.svg?react';
+import CoinsIcon from '../../assets/icons/coins.svg?react';
+import CartIcon from '../../assets/icons/cart.svg?react';
+import TagIcon from '../../assets/icons/tag.svg?react';
+import BulbIcon from '../../assets/icons/bulb.svg?react';
+import CalculatorIcon from '../../assets/icons/calculator.svg?react';
 import styles from './ProjectMenu.module.css';
 
 const icons: Record<Project['icon'], FunctionComponent<SVGProps<SVGSVGElement>>> = {
   bread: BreadIcon,
   dumbbell: DumbbellIcon,
   chat: ChatIcon,
+  coins: CoinsIcon,
+  cart: CartIcon,
+  tag: TagIcon,
+  bulb: BulbIcon,
+  calculator: CalculatorIcon,
 };
 
 interface ProjectMenuProps {
@@ -31,9 +41,8 @@ export default function ProjectMenu({ selected, onSelect }: ProjectMenuProps) {
               onClick={() => onSelect(p.id)}
             >
               <span className={styles.name}>{p.name}</span>
-              <span className={styles.tagline}>{p.tagline}</span>
             </button>
-            <Icon className={styles.icon} width={24} height={24} aria-hidden="true" />
+            <Icon className={styles.icon} width={20} height={20} aria-hidden="true" />
           </div>
         );
       })}

@@ -8,7 +8,7 @@ interface EntryCardProps {
 }
 
 export default function EntryCard({ entry, variant }: EntryCardProps) {
-  const { org, title, date, blurb, logo } = entry;
+  const { org, title, date, blurb, bullets, logo } = entry;
   const size = variant === 'work' ? 88 : 96;
 
   return (
@@ -21,6 +21,13 @@ export default function EntryCard({ entry, variant }: EntryCardProps) {
             {title} · {org}
           </h3>
           <p className={styles.blurb}>{blurb}</p>
+          {bullets && (
+            <ul className={styles.bullets}>
+              {bullets.map((b) => (
+                <li key={b}>{b}</li>
+              ))}
+            </ul>
+          )}
         </div>
       ) : (
         <div className={styles.text}>

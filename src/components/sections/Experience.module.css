@@ -16,13 +16,21 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 32px 64px;
+  align-items: flex-start;
+  gap: 24px 40px;
   margin: 0;
-  padding: 16px 0 0;
+  padding: 0;
   list-style: none;
 }
 
 .list > li {
-  flex: 1 1 340px;
-  max-width: 440px;
+  flex: 1 1 400px;
+  max-width: 520px;
+}
+
+.note {
+  text-align: center;
+  font-size: var(--text-label);
+  letter-spacing: 0.02em;
+  color: var(--muted);
 }

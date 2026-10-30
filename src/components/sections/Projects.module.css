@@ -19,11 +19,11 @@
 }
 
 .menu {
-  flex: 0 1 250px;
+  flex: 0 1 360px;
 }
 
 .detail {
-  flex: 1 1 460px;
+  flex: 1 1 520px;
   min-width: 0;
 }
 

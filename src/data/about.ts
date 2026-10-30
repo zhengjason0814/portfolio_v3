@@ -21,7 +21,7 @@ export const name = 'Jason Zheng';
 export const blurb =
   'software engineer. i build full-stack apps and the data and ML pieces behind them, and i like figuring out why things break.';
 
-export const tags = ['Georgia Tech', 'Stony Brook', 'NYC', 'software developer'];
+export const tags = ['software developer', 'nyc', 'georgia tech', 'stony brook'];
 
 export const headerLinks: HeaderLink[] = [
   { id: 'resume', label: 'resume', href: '/jasonResume.pdf' },

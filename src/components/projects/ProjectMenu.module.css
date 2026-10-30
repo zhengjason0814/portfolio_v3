@@ -1,20 +1,21 @@
 .menu {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 12px;
 }
 
 .row {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
+  min-width: 0;
 }
 
 .card {
   flex: 1 1 auto;
   min-width: 0;
-  min-height: 44px;
-  padding: 8px 12px;
+  min-height: 40px;
+  padding: 6px 10px;
   border-left: 2px solid transparent;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   text-align: left;
@@ -44,16 +45,11 @@
 
 .name {
   display: block;
-  font-size: 16px;
+  overflow: hidden;
+  font-size: var(--text-nav);
   font-weight: 600;
-}
-
-.tagline {
-  display: block;
-  margin-top: 2px;
-  font-size: var(--text-sm);
-  letter-spacing: 0.02em;
-  color: var(--muted);
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /* sits left of the card visually, after it in the DOM */

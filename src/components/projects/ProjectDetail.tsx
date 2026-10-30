@@ -27,15 +27,16 @@ export default function ProjectDetail({ project }: { project: Project | null }) 
               </span>
             )}
           </div>
+          <p className={styles.tagline}>{project.tagline}</p>
           <p className={styles.blurb}>{project.blurb}</p>
         </div>
-        <div
+        <img
           className={styles.shot}
-          role="img"
-          aria-label={`screenshot of ${project.name}, coming soon`}
-        >
-          {projectsCopy.screenshotPending}
-        </div>
+          src={project.screenshot}
+          alt={`screenshot of ${project.name}`}
+          width={800}
+          height={500}
+        />
       </div>
       <TechStackTray project={project} />
     </div>

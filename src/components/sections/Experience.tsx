@@ -1,5 +1,5 @@
 import { useId } from 'react';
-import { experience } from '../../data/experience';
+import { experience, experienceNote } from '../../data/experience';
 import SectionLabel from '../shared/SectionLabel';
 import EntryCard from '../shared/EntryCard';
 import styles from './Experience.module.css';
@@ -16,6 +16,13 @@ export default function Experience() {
           </li>
         ))}
       </ul>
+      <p className={styles.note}>
+        {experienceNote.text}{' '}
+        <a href={experienceNote.href} target="_blank" rel="noreferrer">
+          {experienceNote.linkLabel}
+        </a>
+        .
+      </p>
     </section>
   );
 }

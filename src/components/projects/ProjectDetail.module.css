@@ -54,29 +54,29 @@
   letter-spacing: 0.02em;
 }
 
+.tagline {
+  margin-top: -4px;
+  font-size: var(--text-label);
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
 .blurb {
-  max-width: 520px;
+  max-width: 560px;
   font-size: var(--text-nav);
-  line-height: 1.55;
+  line-height: 1.5;
   color: var(--text);
 }
 
 .shot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex: 0 1 250px;
   min-width: 180px;
+  height: auto;
   aspect-ratio: 16 / 10;
-  padding: 0 24px;
-  border: 1px dashed #d9d9d9;
+  object-fit: cover;
+  border: 1px solid var(--line);
   border-radius: var(--radius-md);
   background: #fafafa;
-  text-align: center;
-  font-size: 11px;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  color: var(--muted);
 }
 
 /* short windows: a smaller screenshot keeps the tray above the conveyor */

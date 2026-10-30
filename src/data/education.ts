@@ -8,8 +8,8 @@ export type { Entry };
 export const education: Entry[] = [
   {
     id: 'gatech',
-    org: 'Georgia Tech',
-    title: 'M.S., computer science',
+    org: 'Georgia Institute of Technology',
+    title: 'M.S. Computer Science',
     date: 'expected dec 2028',
     blurb: "online master's (OMSCS), in progress.",
     logo: gatechLogo,
@@ -17,7 +17,7 @@ export const education: Entry[] = [
   {
     id: 'stonybrook',
     org: 'Stony Brook University',
-    title: 'B.S., information systems',
+    title: 'B.S. Information Systems',
     date: 'may 2026',
     blurb: 'graduated 2026.',
     logo: stonybrookLogo,

@@ -31,8 +31,22 @@
   color: var(--text);
 }
 
+.bullets {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: var(--text-nav);
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.bullets li + li {
+  margin-top: 4px;
+}
+
 /* ---------- work: boxed logo, date first, "title · org" ---------- */
+/* bullets make these tall; the logo sits at the top with the heading rather than centred */
 .work {
+  align-items: flex-start;
   gap: 18px;
 }
 
@@ -47,7 +61,12 @@
 
 .work .heading {
   font-size: var(--text-lg);
-  line-height: 1.6;
+  line-height: 1.4;
+}
+
+.work .blurb {
+  line-height: 1.4;
+  color: var(--muted);
 }
 
 /* ---------- school: bare logo, larger name / degree / date / note ---------- */
