@@ -1,21 +1,19 @@
-import type { CSSProperties, FunctionComponent, SVGProps } from 'react';
+import type { CSSProperties } from 'react';
 import clsx from 'clsx';
 import { skillById } from '../../data/skills';
-import PlateSvg from '../../assets/plate.svg?react';
+import emptyPlate from '../../assets/plate.webp';
 import styles from './Plate.module.css';
 
-type SvgComponent = FunctionComponent<SVGProps<SVGSVGElement>>;
-
-// { 'python': Component, 'js-ts': Component, ... } — a skill with no file is simply absent.
-const foodModules = import.meta.glob<SvgComponent>('../../assets/foods/*.svg', {
+// { 'python': url, 'js-ts': url, ... } — each image is the dish already on its plate;
+// a skill with no file gets the empty plate.
+const foodModules = import.meta.glob<string>('../../assets/foods/*.webp', {
   eager: true,
-  query: '?react',
   import: 'default',
 });
-const foods: Record<string, SvgComponent> = Object.fromEntries(
-  Object.entries(foodModules).map(([path, mod]) => [
-    path.split('/').pop()!.replace('.svg', ''),
-    mod,
+const foods: Record<string, string> = Object.fromEntries(
+  Object.entries(foodModules).map(([path, url]) => [
+    path.split('/').pop()!.replace('.webp', ''),
+    url,
   ]),
 );
 
@@ -33,19 +31,20 @@ export default function Plate({ skillId, size, showLabel = true, className }: Pl
     return null;
   }
 
-  const Food = foods[skill.id];
-  const vars = {
-    '--plate-size': `${size}px`,
-    '--c1': skill.colors[0],
-    '--c2': skill.colors[1],
-  } as CSSProperties;
+  const vars = { '--plate-size': `${size}px` } as CSSProperties;
 
   return (
     <figure className={clsx(styles.plate, className)} style={vars}>
-      <div className={styles.dish} role="img" aria-label={skill.fullName} title={skill.fullName}>
-        <PlateSvg className={styles.base} />
-        {Food && <Food className={styles.food} />}
-      </div>
+      <img
+        className={styles.dish}
+        src={foods[skill.id] ?? emptyPlate}
+        alt={skill.fullName}
+        title={skill.fullName}
+        width={size}
+        height={size}
+        decoding="async"
+        draggable={false}
+      />
       {showLabel && <figcaption className={styles.label}>{skill.label}</figcaption>}
     </figure>
   );

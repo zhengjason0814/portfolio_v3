@@ -15,7 +15,7 @@ export const CONVEYOR_PLATE_ATTR = 'data-conveyor-plate';
 // arc shape
 const DROP = 66; // px the edges sit below the centre
 const LIFT = 10; // px offset of the centre plate from the top
-const TILT = 13; // deg of rotation at the edges
+const TILT = 5; // deg of rotation at the edges; kept small since the dishes are drawn side-on
 const SHRINK = 0.26; // scale lost at the edges
 const FADE_FROM = 0.55; // |t| where plates start fading; fully gone at |t| = 1
 
