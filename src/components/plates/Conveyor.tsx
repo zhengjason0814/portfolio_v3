@@ -7,8 +7,8 @@ import styles from './Conveyor.module.css';
 
 const SPEED = 22;
 // plate width, slot spacing, strip height
-const FULL = { plate: 128, spacing: 168, height: 200 };
-const COMPACT = { plate: 104, spacing: 140, height: 168 }; // short windows (matches Page)
+const FULL = { plate: 128, spacing: 168, height: 188 };
+const COMPACT = { plate: 104, spacing: 140, height: 156 }; // short windows (matches Page)
 const COMPACT_QUERY = '(max-height: 780px)';
 
 interface ConveyorProps {

@@ -21,8 +21,8 @@ export const experience: Entry[] = [
     date: 'sep 2025 – may 2026',
     blurb: 'marketing & communications department.',
     bullets: [
-      'built responsive pages and 15+ reusable CMS components in HTML, CSS and Bootstrap, speeding up new site launches.',
-      'worked with the web team to find and fix accessibility issues, keeping sites WCAG 2.1 compliant for 40,000+ students, faculty and visitors.',
+      'built responsive pages and 15+ reusable CMS components (accordions, forms, carousels) in HTML, CSS, JavaScript, and Bootstrap, speeding up launches.',
+      'ran accessibility audits with the web design team, resolving WCAG 2.1 violations on sites for 40,000+ users.',
     ],
     logo: marcomLogo,
   },
@@ -33,9 +33,9 @@ export const experience: Entry[] = [
     date: 'summer 2024',
     blurb: 'the Real Estate Board of New York.',
     bullets: [
-      'proposed and led the plan for an AI assistant on the company lease site.',
-      'built it as a full-stack RAG chatbot on the OpenAI API, running 24/7; 25% fewer support tickets and 47+ hours saved.',
-      'took the first working prototype through to the official deployment.',
+      'led the plan for an AI assistant on the company’s lease site: a full-stack RAG chatbot on the OpenAI API.',
+      'indexed leasing documents as vector embeddings, so answers stay grounded in company policy.',
+      'took it from first prototype to official deployment; 25% fewer support tickets and 47+ hours saved in 2 months.',
     ],
     logo: rebnyLogo,
   },
