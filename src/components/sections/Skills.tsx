@@ -1,9 +1,9 @@
 import { useId, useRef } from 'react';
-import { skillCategories, skills } from '../../data/skills';
+import { certifications, certificationsLabel, skillCategories, skills } from '../../data/skills';
 import { conveyorPlateSource } from '../../hooks/useConveyor';
 import { useFlyIn } from '../../hooks/useFlyIn';
 import SectionLabel from '../shared/SectionLabel';
-import Shelf from '../skills/Shelf';
+import Shelf, { CertShelf } from '../skills/Shelf';
 import styles from './Skills.module.css';
 
 // conveyor order within each category
@@ -35,6 +35,7 @@ export default function Skills() {
         {shelves.map((s) => (
           <Shelf key={s.id} label={s.label} skills={s.skills} />
         ))}
+        <CertShelf label={certificationsLabel} certs={certifications} />
       </div>
     </section>
   );

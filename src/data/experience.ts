@@ -7,8 +7,9 @@ export interface Entry {
   org: string; // "Stony Brook University"
   title: string; // "B.S., information systems" / "front-end intern"
   date: string; // "sep 2025 – may 2026"
-  blurb: string;
-  bullets?: string[]; // what was done there, shown under the blurb
+  blurb?: string;
+  bullets?: string[]; // work: what was done there; school: honours
+  involvements?: string[]; // school only: clubs and orgs, one line under the honours
   logo: string; // resolved asset URL
 }
 

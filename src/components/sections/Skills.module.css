@@ -23,6 +23,6 @@
 /* short windows */
 @media (max-height: 780px) {
   .shelves {
-    gap: 16px;
+    gap: 10px;
   }
 }

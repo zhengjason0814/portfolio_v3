@@ -1,3 +1,5 @@
+import awsCloudPractitionerBadge from '../assets/logos/aws-cloud-practitioner.png';
+
 export type SkillCategory = 'languages' | 'frameworks' | 'data' | 'infra';
 
 export interface Skill {
@@ -160,3 +162,22 @@ export const skills: Skill[] = [
 ];
 
 export const skillById = Object.fromEntries(skills.map((s) => [s.id, s])) as Record<string, Skill>;
+
+// own shelf under the skills, badge in place of a plate
+export interface Certification {
+  id: string;
+  name: string; // "AWS Certified Cloud Practitioner"
+  short: string; // caption under the badge
+  badge: string; // resolved asset URL
+}
+
+export const certificationsLabel = 'certifications';
+
+export const certifications: Certification[] = [
+  {
+    id: 'aws-cloud-practitioner',
+    name: 'AWS Certified Cloud Practitioner',
+    short: 'AWS Cloud Practitioner',
+    badge: awsCloudPractitionerBadge,
+  },
+];

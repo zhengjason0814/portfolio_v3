@@ -69,8 +69,16 @@
   color: var(--muted);
 }
 
-/* ---------- school: bare logo, larger name / degree / date / note ---------- */
+/* ---------- school: logo beside name / degree / date, then honours and involvements ---------- */
 .school {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+}
+
+.school .head {
+  display: flex;
+  align-items: flex-start;
   gap: 22px;
 }
 
@@ -93,5 +101,15 @@
 }
 
 .school .blurb {
-  margin-top: 8px;
+  margin-top: 4px;
+}
+
+.school .bullets {
+  margin: 0;
+}
+
+.involvements {
+  font-size: var(--text-nav);
+  line-height: 1.5;
+  color: var(--text);
 }

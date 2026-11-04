@@ -4,8 +4,17 @@ import type { Entry } from './experience';
 
 export type { Entry };
 
-// most recent first
+// undergrad first, then grad
 export const education: Entry[] = [
+  {
+    id: 'stonybrook',
+    org: 'Stony Brook University',
+    title: 'B.S. Information Systems',
+    date: 'may 2026',
+    bullets: ['cum laude', "dean's list"],
+    involvements: ['Theta Tau', 'Fujianese Culture Club'],
+    logo: stonybrookLogo,
+  },
   {
     id: 'gatech',
     org: 'Georgia Institute of Technology',
@@ -13,13 +22,5 @@ export const education: Entry[] = [
     date: 'expected dec 2028',
     blurb: "online master's (OMSCS), in progress.",
     logo: gatechLogo,
-  },
-  {
-    id: 'stonybrook',
-    org: 'Stony Brook University',
-    title: 'B.S. Information Systems',
-    date: 'may 2026',
-    blurb: 'graduated 2026.',
-    logo: stonybrookLogo,
   },
 ];
