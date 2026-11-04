@@ -19,7 +19,7 @@ export interface HeaderLink {
 export const name = 'Jason Zheng';
 
 export const blurb =
-  'software engineer. i build full-stack apps and the data and ML pieces behind them, and i like figuring out why things break.';
+  'software engineer. i build things to make someone’s day a little more interesting.';
 
 export const tags = ['software developer', 'nyc', 'georgia tech', 'stony brook'];
 
@@ -34,6 +34,6 @@ export const aboutLead =
   'Stony Brook B.S. in information systems, 2026. now pursuing an M.S. in computer science at Georgia Tech.';
 
 export const aboutBody = [
-  "what i like most about software is that it's open-ended: with the right idea, you can build almost anything. i've built AI chatbots, accessible university websites, and a personal finance app with its own ML service.",
-  "outside of code, i'm usually cooking, which turns out to be pretty similar: the right ingredients, a bit of creativity, and something good comes out.",
+  'what i admire about software is that it’s open-ended: with just an idea, you can build anything. In the past, I’ve held internships, won podium placements in hackathons, and built projects, each a step toward being an engineer who can bridge the gap between imagination and product.',
+  'outside of tech, another passion is learning skills! some examples i’ve been getting into include cooking and video editing, both of which have a similarity to my interest of how ideas can take you anywhere. i take pride in my ability to learn, and I’m proudest when i do something challenging. ',
 ];
