@@ -22,6 +22,9 @@ const FLY = {
   delay: 450, // after the view's fade-in, which would dim plates already in the air
 } as const;
 
+// the badge drops onto its shelf as the last plate lands
+const BADGE_DELAY = FLY.delay + (skills.length - 1) * FLY.stagger + FLY.duration * 0.8;
+
 export default function Skills() {
   const labelId = useId();
   const shelvesRef = useRef<HTMLDivElement>(null);
@@ -35,7 +38,7 @@ export default function Skills() {
         {shelves.map((s) => (
           <Shelf key={s.id} label={s.label} skills={s.skills} />
         ))}
-        <CertShelf label={certificationsLabel} certs={certifications} />
+        <CertShelf label={certificationsLabel} certs={certifications} delay={BADGE_DELAY} />
       </div>
     </section>
   );

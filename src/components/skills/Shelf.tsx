@@ -1,4 +1,4 @@
-import { useId, type ReactNode } from 'react';
+import { useId, type CSSProperties, type ReactNode } from 'react';
 import type { Certification, Skill } from '../../data/skills';
 import { FLY_ID_ATTR } from '../../hooks/useFlyIn';
 import Plate from '../plates/Plate';
@@ -45,14 +45,15 @@ export default function Shelf({ label, skills }: ShelfProps) {
 interface CertShelfProps {
   label: string;
   certs: readonly Certification[];
+  delay?: number; // ms before the badge drops in
 }
 
-/** badges on the plank, captioned like the plates; not part of the fly-in */
-export function CertShelf({ label, certs }: CertShelfProps) {
+/** badges on the plank, captioned like the plates; they drop in rather than fly from the belt */
+export function CertShelf({ label, certs, delay = 0 }: CertShelfProps) {
   return (
     <Frame label={label}>
       {certs.map((c) => (
-        <li key={c.id}>
+        <li key={c.id} style={{ '--drop-delay': `${delay}ms` } as CSSProperties}>
           <figure className={styles.cert} title={c.name}>
             <img className={styles.badge} src={c.badge} alt={c.name} width={PLATE} height={PLATE} />
             <figcaption className={styles.caption}>{c.short}</figcaption>

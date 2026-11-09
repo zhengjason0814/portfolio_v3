@@ -29,6 +29,20 @@
   list-style: none;
 }
 
+/* set apart from the links by a short rule */
+.switchItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.switchItem::after {
+  content: '';
+  width: 1px;
+  height: 20px;
+  background: var(--line);
+}
+
 .link {
   display: inline-flex;
   align-items: center;

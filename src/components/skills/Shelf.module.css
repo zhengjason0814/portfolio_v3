@@ -69,6 +69,8 @@
   width: 56px;
   height: 56px;
   object-fit: contain;
+  transform-origin: 50% 100%;
+  animation: drop 0.75s var(--drop-delay, 0s) both;
 }
 
 .caption {
@@ -77,6 +79,45 @@
   line-height: 1.2;
   color: var(--muted);
   white-space: nowrap;
+  animation: caption 0.4s ease calc(var(--drop-delay, 0s) + 0.35s) both;
+}
+
+/* falls onto the plank tilted, lands with a squash, rocks once and settles */
+@keyframes drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-36px) rotate(-10deg);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.9, 0.5);
+  }
+  20% {
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(0) rotate(0) scale(1.06, 0.92);
+    animation-timing-function: var(--ease-out);
+  }
+  65% {
+    transform: translateY(-5px) rotate(3deg) scale(0.98, 1.03);
+  }
+  82% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes caption {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge,
+  .caption {
+    animation: none;
+  }
 }
 
 /* narrow: tag sits above the plates */

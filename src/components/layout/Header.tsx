@@ -7,6 +7,7 @@ import ResumeIcon from '../../assets/icons/resume.svg?react';
 import GithubIcon from '../../assets/icons/github.svg?react';
 import LinkedinIcon from '../../assets/icons/linkedin.svg?react';
 import EmailIcon from '../../assets/icons/email.svg?react';
+import PlateStyleSwitch from '../plates/PlateStyleSwitch';
 import Nav from './Nav';
 import styles from './Header.module.css';
 
@@ -36,6 +37,9 @@ export default function Header({ active, onSelect, onHover, onLeave }: HeaderPro
       <div className={styles.side}>
         <Nav active={active} onSelect={onSelect} onHover={onHover} onLeave={onLeave} />
         <ul className={`enter ${styles.links}`}>
+          <li className={styles.switchItem}>
+            <PlateStyleSwitch />
+          </li>
           {headerLinks.map((l) => {
             const Icon = icons[l.id];
             const external = l.href.startsWith('http') || l.id === 'resume';

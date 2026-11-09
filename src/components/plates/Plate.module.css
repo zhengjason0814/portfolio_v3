@@ -12,6 +12,27 @@
   width: var(--plate-size);
   height: var(--plate-size);
   user-select: none;
+  animation: swap 0.35s var(--ease-out) both;
+}
+
+/* logos sit where the dishes do: below centre, a little over half the box */
+.logo {
+  padding: 26% 22% 12%;
+  object-fit: contain;
+}
+
+/* mount fade: plays when the switch flips; the first paint is covered by each view's own entrance */
+@keyframes swap {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dish {
+    animation: none;
+  }
 }
 
 .label {
